@@ -87,6 +87,12 @@ void _div(stack_t **dbly, unsigned int count_line)
 		free_vglo();
 		exit(EXIT_FAILURE);
 	}
+	if ((*dbly)->n == 0)
+	{
+		dprintf(2, "L%u: division by zero\n", count_line);
+		free_vglo();
+		exit(EXIT_FAILURE);
+	}
 	curr = (*dbly)->next;
 	curr->n /= (*dbly)->n;
 	_pop(dbly, count_line);
