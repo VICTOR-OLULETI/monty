@@ -98,3 +98,33 @@ void _pop(stack_t **dbly, unsigned int count_line)
 	*dbly = (*dbly)->next;
 	free(temp);
 }
+
+/**
+ * swap - swaps the top two elements of the stack
+ * @dbly: head of double linked list
+ * @count_line: line number
+ * Return: void.
+ */
+void _swap(stack_t **dbly, unsigned int count_line)
+{
+	int i = 0;
+	stack_t *curr;
+
+	curr = *dbly;
+	for (; curr != NULL; curr = curr->next, i++)
+		;
+
+	if (i < 2)
+	{
+		dprintf(2, "L%u: ", count_line);
+		dprintf(2, "can't swap, stack too short\n");
+		free_vglo();
+		exit(EXIT_FAILURE);
+	}
+	curr = *dbly;
+	*dbly = (*dbly)->next;
+	curr->next = (*dbly)->next;
+	curr->prev = *dbly;
+	(*dbly)->next = curr;
+	(*dbly)->prev = NULL;
+}
