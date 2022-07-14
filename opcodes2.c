@@ -57,7 +57,7 @@ void _sub(stack_t **dbly, unsigned int count_line)
 	if (i < 2)
 	{
 		dprintf(2, "L%u: ", count_line);
-		dprintf(2, "can't sub, stack too short");
+		dprintf(2, "can't sub, stack too short\n");
 		free_vglo();
 		exit(EXIT_FAILURE);
 	}
