@@ -26,3 +26,13 @@ void _add(stack_t **dbly, unsigned int count_line)
 	curr->n += (*dbly)->n;
 	_pop(dbly, count_line);
 }
+
+/**
+ * _nop - does nothing
+ * @dbly: head of linked lst
+ * @count_line: line number
+ * Return: void.
+ */
+void _nop(stack_t **dbly, unsigned int count_line)
+{
+}
