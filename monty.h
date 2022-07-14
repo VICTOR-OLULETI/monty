@@ -72,7 +72,7 @@ void (*get_opcodes(char *opc))(stack_t **stack, unsigned int line_number);
 
 /* imported functions */
 int _sch(char *s, char c);
-char *_strtoky(char *s, char *d);
+char *_strtok(char *s, char *d);
 int _strcmp(char *s1, char *s2);
 
 /* doubly linked list functions */

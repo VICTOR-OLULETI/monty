@@ -43,25 +43,25 @@ int _sch(char *s, char c)
 }
 
 /**
- * _strtoky - function that cut a string into tokens
+ * _strtok - function that cut a string into tokens
  * depending of the delimit
  * @s: string to cut in parts
  * @d: delimiters
  * Return: first partition
  */
-char *_strtoky(char *s, char *d)
+char *_strtok(char *s, char *d)
 {
-	static char *ultimo;
+	static char *temp;
 	int i = 0, j = 0;
 
 	if (!s)
-		s = ultimo;
+		s = temp;
 	while (s[i] != '\0')
 	{
 		if (_sch(d, s[i]) == 0 && s[i + 1] == '\0')
 		{
-			ultimo = s + i + 1;
-			*ultimo = '\0';
+			temp = s + i + 1;
+			*temp = '\0';
 			s = s + j;
 			return (s);
 		}
@@ -69,9 +69,9 @@ char *_strtoky(char *s, char *d)
 			i++;
 		else if (_sch(d, s[i]) == 0 && _sch(d, s[i + 1]) == 1)
 		{
-			ultimo = s + i + 1;
-			*ultimo = '\0';
-			ultimo++;
+			temp = s + i + 1;
+			*temp = '\0';
+			temp++;
 			s = s + j;
 			return (s);
 		}

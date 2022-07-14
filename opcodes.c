@@ -4,11 +4,11 @@
 /**
  * _push - pushes element to the stack
  *
- * @doubly: head of the linked list
+ * @dbly: head of a double linked list
  * @cline: line number
  * Return: no return
  */
-void _push(stack_t **doubly, unsigned int cline)
+void _push(stack_t **dbly, unsigned int cline)
 {
 	int n, j;
 
@@ -33,23 +33,23 @@ void _push(stack_t **doubly, unsigned int cline)
 	n = atoi(vglo.arg);
 
 	if (vglo.lifo == 1)
-		add_dnodeint(doubly, n);
+		add_dnodeint(dbly, n);
 	else
-		add_dnodeint_end(doubly, n);
+		add_dnodeint_end(dbly, n);
 }
 
 /**
  * _pall - prints all element from top of stack
- * @doubly: head of linked list
+ * @dbly: head of double linked list
  * @cline: line number
  * Return: void.
  */
-void _pall(stack_t **doubly, unsigned int cline)
+void _pall(stack_t **dbly, unsigned int count_line)
 {
 	stack_t *temp;
-	(void)cline;
+	(void)count_line;
 
-	temp = *doubly;
+	temp = *dbly;
 	while (temp != NULL)
 	{
 		printf("%d\n", temp->n);

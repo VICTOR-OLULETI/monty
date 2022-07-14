@@ -69,25 +69,25 @@ int main(int argc, char *argv[])
 	FILE *fd;
 	size_t size = 256;
 	ssize_t nlines = 0;
-	char *lines[2] = {NULL, NULL};
+	char *temp[2] = {NULL, NULL};
 
 	fd = check_input(argc, argv);
 	start_vglo(fd);
 	nlines = getline(&vglo.buffer, &size, fd);
 	while (nlines != -1)
 	{
-		lines[0] = _strtoky(vglo.buffer, " \t\n");
-		if (lines[0] && lines[0][0] != '#')
+		temp[0] = _strtok(vglo.buffer, " \t\n");
+		if (temp[0] && temp[0][0] != '#')
 		{
-			f = get_opcodes(lines[0]);
+			f = get_opcodes(temp[0]);
 			if (!f)
 			{
 				dprintf(2, "L%u: ", vglo.cont);
-				dprintf(2, "unknown instruction %s\n", lines[0]);
+				dprintf(2, "unknown instruction %s\n", temp[0]);
 				free_vglo();
 				exit(EXIT_FAILURE);
 			}
-			vglo.arg = _strtoky(NULL, " \t\n");
+			vglo.arg = _strtok(NULL, " \t\n");
 			f(&vglo.head, vglo.cont);
 		}
 		nlines = getline(&vglo.buffer, &size, fd);
