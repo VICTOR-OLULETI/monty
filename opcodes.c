@@ -77,3 +77,24 @@ void _pint(stack_t **dbly, unsigned int count_line)
 	}
 	printf("%d\n", temp->n);
 }
+/**
+ * pop - removes the top element of the stack
+ * @dbly: head of double linked list
+ * @count_line: line number
+ * Return: void.
+ */
+void _pop(stack_t **dbly, unsigned int count_line)
+{
+	stack_t *temp;
+
+	temp = *dbly;
+	if (temp == NULL)
+	{
+		dprintf(2, "L%u: ", count_line);
+		dprintf(2, "can't pop an empty stack\n");
+		free_vglo();
+		exit(EXIT_FAILURE);
+	}
+	*dbly = (*dbly)->next;
+	free(temp);
+}
