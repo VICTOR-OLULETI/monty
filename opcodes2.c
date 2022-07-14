@@ -35,4 +35,6 @@ void _add(stack_t **dbly, unsigned int count_line)
  */
 void _nop(stack_t **dbly, unsigned int count_line)
 {
+	(void)dbly;
+	(void)count_line;
 }
