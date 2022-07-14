@@ -41,7 +41,7 @@ void _push(stack_t **dbly, unsigned int cline)
 /**
  * _pall - prints all element from top of stack
  * @dbly: head of double linked list
- * @cline: line number
+ * @count_line: line number
  * Return: void.
  */
 void _pall(stack_t **dbly, unsigned int count_line)
@@ -55,4 +55,25 @@ void _pall(stack_t **dbly, unsigned int count_line)
 		printf("%d\n", temp->n);
 		temp = temp->next;
 	}
+}
+
+/**
+ * pint - prints the value at the top of stack
+ * @dbly: head of double linked list
+ * @count_line: line number
+ * Return: void.
+ */
+void _pint(stack_t **dbly, unsigned int count_line)
+{
+	stack_t *temp;
+
+	temp = *dbly;
+	if (temp == NULL)
+	{
+		dprintf(2, "L%u: ", count_line);
+		dprintf(2, "can't pint, stack empty\n");
+		free_vglo();
+		exit(EXIT_FAILURE);
+	}
+	printf("%d\n", temp->n);
 }

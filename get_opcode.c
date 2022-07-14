@@ -11,6 +11,7 @@ void (*get_opcodes(char *opc))(stack_t **stack, unsigned int count_line)
 	instruction_t instruct[] = {
 		{"push", _push},
 		{"pall", _pall},
+		{"pint", _pint},
 		{NULL, NULL}
 	};
 	int i;
