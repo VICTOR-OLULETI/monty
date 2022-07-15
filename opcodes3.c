@@ -90,6 +90,8 @@ void _rotl(stack_t **dbly, unsigned int count_line)
 	stack_t *curr;
 
 	curr = *dbly;
+	if (curr == NULL || curr->next == NULL)
+		return;
 	value = curr->n;
 	_pop(dbly, count_line);
 	add_dnodeint_end(dbly, value);
