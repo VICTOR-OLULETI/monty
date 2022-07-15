@@ -19,6 +19,7 @@ void (*get_opcodes(char *opc))(stack_t **stack, unsigned int count_line)
 		{"sub", _sub},
 		{"div", _div},
 		{"mul", _mul},
+		{"mod", _mod},
 		{NULL, NULL}
 	};
 	int i;
