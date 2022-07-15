@@ -31,3 +31,49 @@ void _mod(stack_t **dbly, unsigned int count_line)
 	curr->n %= (*dbly)->n;
 	_pop(dbly, count_line);
 }
+/**
+ * _pchar - prints the char value of the top of the stack
+ * @dbly: head of the linked list
+ * @count_line: line number
+ * Return: void.
+ */
+void _pchar(stack_t **dbly, unsigned int count_line)
+{
+	stack_t *curr = NULL;
+
+	curr = *dbly;
+	if (curr == NULL)
+	{
+		dprintf(2, "L%u: can't pchar, stack empty\n", count_line);
+		free_vglo();
+		exit(EXIT_FAILURE);
+	}
+	if (curr->n < 0 || curr->n > 127)
+	{
+		dprintf(2, "L%u: ", count_line);
+		dprintf(2, "can't pchar, value out of range\n");
+		free_vglo();
+		exit(EXIT_FAILURE);
+	}
+	printf("%c\n", (*dbly)->n);
+}
+/**
+ * _pstr - prints the string starting at the top of the stack
+ * @dbly: head of the linked list
+ * @count_line: line number
+ * Return: void.
+ */
+void _pstr(stack_t **dbly, unsigned int count_line)
+{
+	stack_t *curr;
+	(void)count_line;
+
+	curr = *dbly;
+	while (curr && curr->n > 0 && curr->n < 128)
+	{
+		printf("%c", curr->n);
+		curr = curr->next;
+	}
+
+	printf("\n");
+}
