@@ -77,3 +77,20 @@ void _pstr(stack_t **dbly, unsigned int count_line)
 
 	printf("\n");
 }
+
+/**
+ * _rotl - rotates the stack to the top
+ * @dbly: head of the linked list
+ * @count_line: line number
+ * Return: void.
+ */
+void _rotl(stack_t **dbly, unsigned int count_line)
+{
+	int value;
+	stack_t *curr;
+
+	curr = *dbly;
+	value = curr->n;
+	_pop(dbly, count_line);
+	add_dnodeint_end(dbly, value);
+}
