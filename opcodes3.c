@@ -96,3 +96,26 @@ void _rotl(stack_t **dbly, unsigned int count_line)
 	_pop(dbly, count_line);
 	add_dnodeint_end(dbly, value);
 }
+
+/**
+ * _rotr - rotates the stack to the bottom
+ * @dbly: head of the linked list
+ * @count_line: line number
+ * Return: void.
+ */
+void _rotr(stack_t **dbly, unsigned int count_line)
+{
+	stack_t *curr;
+	(void)count_line;
+	
+	curr = *dbly;
+	if (curr == NULL || curr->next == NULL)
+		return;
+	while (curr->next != NULL)
+		curr = curr->next;
+	curr->prev->next = NULL;
+	curr->prev = NULL;
+	curr->next = (*dbly);
+	(*dbly)->prev = curr;
+	*dbly = curr;
+}
